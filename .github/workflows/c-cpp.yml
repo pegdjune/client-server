@@ -3,7 +3,7 @@ name: C/C++ CI
 on: [push]
 
 jobs:
-  build:
+  check-bats-version:
 
     runs-on: ubuntu-latest
 
@@ -11,7 +11,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: compilation and execution server
       run: cd server
-      run: make run-server
+    - run: make run-server
     - name: compilation and execution client
       run: client
-      run: make run-cli file=peg
+    - run: make run-cli file=peg

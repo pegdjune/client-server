@@ -90,7 +90,7 @@ if (listen(sock_serv,10) == -1)
 void envoi(int sock_connecte)
 {
           FILE* fichier_envoy=NULL;
-          char* caractere_actuel;
+          int caractere_actuel;
 	  fprintf(stdout, "tentative de connexion\n");
 	  fprintf(stdout, "Identification du fichier demandé par le client\n");
 	
@@ -113,11 +113,11 @@ void envoi(int sock_connecte)
 		
 	 do 
 	  {
-	  //caractere_actuel = fgetc(fichier_envoy);
-	  fgets(caractere_actuel,2000000,fichier_envoy);
+	  caractere_actuel = fgetc(fichier_envoy);
+	  //fgets(caractere_actuel,2000000,fichier_envoy);
           write(sock_connecte, &caractere_actuel ,sizeof(int));
           }
-          while(caractere_actuel != NULL);
+          while(caractere_actuel != EOF);
 	  fprintf(stdout, " Connexion terminée avec un client\n");
 	
 	  fclose(fichier_envoy);

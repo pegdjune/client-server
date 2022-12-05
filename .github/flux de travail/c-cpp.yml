@@ -3,7 +3,7 @@ name: C/C++ CI
 on: [push]
 
 jobs:
-  check-bats-version:
+  
 
     runs-on: ubuntu-latest
 

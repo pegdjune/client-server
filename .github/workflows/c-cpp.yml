@@ -14,7 +14,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: compilation and execution server
+      run: cd server
       run: make run-server
     - name: compilation and execution client
-      run: make run-cli file=server/pic
-
+      run: client
+      run: make run-cli file=peg
